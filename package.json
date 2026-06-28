@@ -1,0 +1,10 @@
+{
+  "name": "backend.pdf",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A PDF that is a working app with a SQL database inside it.",
+  "scripts": {
+    "test": "node --test",
+    "build": "node build/build.js"
+  }
+}
