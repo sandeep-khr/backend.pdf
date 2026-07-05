@@ -4,36 +4,63 @@
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
 endobj
 2 0 obj
-<< /Type /Annot /Subtype /Widget /FT /Tx /T (state) /Ff 0 /Rect [0 0 1 1] /V () /DA (/Helv 10 Tf 0 g) /MK << /BC [0.6 0.6 0.6] /BG [1 1 1] >> /BS << /W 1 /S /S >> /F 2 >>
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
 endobj
 3 0 obj
-<< /Type /Annot /Subtype /Widget /FT /Tx /T (todo_list) /Ff 4097 /Rect [40 470 572 720] /V () /DA (/Helv 10 Tf 0 g) /MK << /BC [0.6 0.6 0.6] /BG [1 1 1] >> /BS << /W 1 /S /S >> >>
+<< /Type /Annot /Subtype /Widget /FT /Tx /T (state) /Ff 0 /Rect [0 0 1 1] /V () /DA (/Helv 11 Tf 0 g) /MK << /BC [0.6 0.6 0.6] /BG [1 1 1] >> /BS << /W 1 /S /S >> /F 2 >>
 endobj
 4 0 obj
-<< /Type /Annot /Subtype /Widget /FT /Tx /T (new_todo) /Ff 0 /Rect [40 430 360 458] /V () /DA (/Helv 10 Tf 0 g) /MK << /BC [0.6 0.6 0.6] /BG [1 1 1] >> /BS << /W 1 /S /S >> >>
+<< /Type /Annot /Subtype /Widget /FT /Tx /T (todo_list) /Ff 4097 /Rect [40 500 572 712] /V () /DA (/Helv 11 Tf 0 g) /MK << /BC [0.6 0.6 0.6] /BG [1 1 1] >> /BS << /W 1 /S /S >> >>
 endobj
 5 0 obj
-<< /Type /Annot /Subtype /Widget /FT /Btn /Ff 65536 /T (add) /Rect [370 430 470 458] /MK << /CA (Add) /BG [0.86 0.86 0.86] /BC [0.4 0.4 0.4] >> /BS << /W 1 /S /S >> /A << /S /JavaScript /JS (onAdd\(\);) >> >>
+<< /Type /Annot /Subtype /Widget /FT /Tx /T (new_todo) /Ff 0 /Rect [40 456 380 484] /V () /DA (/Helv 11 Tf 0 g) /MK << /BC [0.6 0.6 0.6] /BG [1 1 1] >> /BS << /W 1 /S /S >> >>
 endobj
 6 0 obj
-<< /Type /Annot /Subtype /Widget /FT /Tx /T (action_id) /Ff 0 /Rect [40 390 140 418] /V () /DA (/Helv 10 Tf 0 g) /MK << /BC [0.6 0.6 0.6] /BG [1 1 1] >> /BS << /W 1 /S /S >> >>
+<< /Type /Annot /Subtype /Widget /FT /Btn /Ff 65536 /T (add) /Rect [390 456 480 484] /MK << /CA (Add) /BG [0.86 0.86 0.86] /BC [0.4 0.4 0.4] >> /BS << /W 1 /S /S >> /A << /S /JavaScript /JS (onAdd\(\);) >> >>
 endobj
 7 0 obj
-<< /Type /Annot /Subtype /Widget /FT /Btn /Ff 65536 /T (toggle) /Rect [150 390 270 418] /MK << /CA (Toggle done) /BG [0.86 0.86 0.86] /BC [0.4 0.4 0.4] >> /BS << /W 1 /S /S >> /A << /S /JavaScript /JS (onToggle\(\);) >> >>
+<< /Type /Annot /Subtype /Widget /FT /Tx /T (action_id) /Ff 0 /Rect [40 410 130 438] /V () /DA (/Helv 11 Tf 0 g) /MK << /BC [0.6 0.6 0.6] /BG [1 1 1] >> /BS << /W 1 /S /S >> >>
 endobj
 8 0 obj
-<< /Type /Annot /Subtype /Widget /FT /Btn /Ff 65536 /T (delete) /Rect [280 390 380 418] /MK << /CA (Delete) /BG [0.86 0.86 0.86] /BC [0.4 0.4 0.4] >> /BS << /W 1 /S /S >> /A << /S /JavaScript /JS (onDelete\(\);) >> >>
+<< /Type /Annot /Subtype /Widget /FT /Btn /Ff 65536 /T (toggle) /Rect [140 410 280 438] /MK << /CA (Toggle done) /BG [0.86 0.86 0.86] /BC [0.4 0.4 0.4] >> /BS << /W 1 /S /S >> /A << /S /JavaScript /JS (onToggle\(\);) >> >>
 endobj
 9 0 obj
-<< /Type /Annot /Subtype /Widget /FT /Tx /T (sql_input) /Ff 4096 /Rect [40 250 572 330] /V () /DA (/Helv 10 Tf 0 g) /MK << /BC [0.6 0.6 0.6] /BG [1 1 1] >> /BS << /W 1 /S /S >> >>
+<< /Type /Annot /Subtype /Widget /FT /Btn /Ff 65536 /T (delete) /Rect [290 410 390 438] /MK << /CA (Delete) /BG [0.86 0.86 0.86] /BC [0.4 0.4 0.4] >> /BS << /W 1 /S /S >> /A << /S /JavaScript /JS (onDelete\(\);) >> >>
 endobj
 10 0 obj
-<< /Type /Annot /Subtype /Widget /FT /Btn /Ff 65536 /T (run) /Rect [40 218 160 246] /MK << /CA (Run SQL) /BG [0.86 0.86 0.86] /BC [0.4 0.4 0.4] >> /BS << /W 1 /S /S >> /A << /S /JavaScript /JS (onRunSql\(\);) >> >>
+<< /Type /Annot /Subtype /Widget /FT /Tx /T (sql_input) /Ff 4096 /Rect [40 276 572 342] /V (select * from todos;) /DA (/Helv 11 Tf 0 g) /MK << /BC [0.6 0.6 0.6] /BG [1 1 1] >> /BS << /W 1 /S /S >> >>
 endobj
 11 0 obj
-<< /Type /Annot /Subtype /Widget /FT /Tx /T (sql_output) /Ff 4097 /Rect [40 40 572 210] /V () /DA (/Helv 10 Tf 0 g) /MK << /BC [0.6 0.6 0.6] /BG [1 1 1] >> /BS << /W 1 /S /S >> >>
+<< /Type /Annot /Subtype /Widget /FT /Btn /Ff 65536 /T (run) /Rect [40 244 170 272] /MK << /CA (Run SQL) /BG [0.86 0.86 0.86] /BC [0.4 0.4 0.4] >> /BS << /W 1 /S /S >> /A << /S /JavaScript /JS (onRunSql\(\);) >> >>
 endobj
 12 0 obj
+<< /Type /Annot /Subtype /Widget /FT /Tx /T (sql_output) /Ff 4097 /Rect [40 40 572 224] /V () /DA (/Helv 11 Tf 0 g) /MK << /BC [0.6 0.6 0.6] /BG [1 1 1] >> /BS << /W 1 /S /S >> >>
+endobj
+13 0 obj
+<< /Length 763 >>
+stream
+0 0 0 rg
+BT /HelvB 20 Tf 40 760 Td (backend.pdf) Tj ET
+0.35 0.35 0.35 rg
+BT /Helv 11 Tf 40 740 Td (a real SQL database that lives inside this PDF file) Tj ET
+0 0 0 rg
+BT /HelvB 12 Tf 40 720 Td (Your todos) Tj ET
+0.35 0.35 0.35 rg
+BT /Helv 10 Tf 40 490 Td (Add a todo:) Tj ET
+0.4 0.4 0.4 rg
+BT /Helv 9 Tf 40 446 Td (Toggle or delete by id - type the number, then click the button) Tj ET
+0.4 0.4 0.4 rg
+BT /Helv 9 Tf 40 384 Td (To save your data: click the Download icon in the toolbar \(Cmd+S just re-downloads the original\)) Tj ET
+0 0 0 rg
+BT /HelvB 12 Tf 40 370 Td (SQL console) Tj ET
+0.35 0.35 0.35 rg
+BT /Helv 9 Tf 40 356 Td (Edit the query and hit Run SQL. Try: select text from todos where done = 0) Tj ET
+0 0 0 rg
+BT /HelvB 12 Tf 40 234 Td (Results) Tj ET
+
+endstream
+endobj
+14 0 obj
 << /Length 17538 >>
 stream
 
@@ -561,39 +588,41 @@ __run(UI.init);
 
 endstream
 endobj
-13 0 obj
-<< /S /JavaScript /JS 12 0 R >>
-endobj
-14 0 obj
-<< /Type /Page /Parent 15 0 R /MediaBox [0 0 612 792] /Resources << /Font << /Helv 1 0 R >> >> /Annots [2 0 R 3 0 R 4 0 R 5 0 R 6 0 R 7 0 R 8 0 R 9 0 R 10 0 R 11 0 R] >>
-endobj
 15 0 obj
-<< /Type /Pages /Kids [14 0 R] /Count 1 >>
+<< /S /JavaScript /JS 14 0 R >>
 endobj
 16 0 obj
-<< /Type /Catalog /Pages 15 0 R /AcroForm << /Fields [2 0 R 3 0 R 4 0 R 5 0 R 6 0 R 7 0 R 8 0 R 9 0 R 10 0 R 11 0 R] /NeedAppearances true /DA (/Helv 10 Tf 0 g) /DR << /Font << /Helv 1 0 R >> >> >> /OpenAction 13 0 R >>
+<< /Type /Page /Parent 17 0 R /MediaBox [0 0 612 792] /Resources << /Font << /Helv 1 0 R /HelvB 2 0 R >> >> /Contents 13 0 R /Annots [3 0 R 4 0 R 5 0 R 6 0 R 7 0 R 8 0 R 9 0 R 10 0 R 11 0 R 12 0 R] >>
+endobj
+17 0 obj
+<< /Type /Pages /Kids [16 0 R] /Count 1 >>
+endobj
+18 0 obj
+<< /Type /Catalog /Pages 17 0 R /AcroForm << /Fields [3 0 R 4 0 R 5 0 R 6 0 R 7 0 R 8 0 R 9 0 R 10 0 R 11 0 R 12 0 R] /NeedAppearances true /DA (/Helv 11 Tf 0 g) /DR << /Font << /Helv 1 0 R /HelvB 2 0 R >> >> >> /OpenAction 15 0 R >>
 endobj
 xref
-0 17
+0 19
 0000000000 65535 f 
 0000000015 00000 n 
 0000000085 00000 n 
-0000000271 00000 n 
-0000000466 00000 n 
-0000000657 00000 n 
-0000000881 00000 n 
-0000001073 00000 n 
-0000001311 00000 n 
-0000001544 00000 n 
-0000001739 00000 n 
-0000001970 00000 n 
-0000002166 00000 n 
-0000019758 00000 n 
-0000019806 00000 n 
-0000019992 00000 n 
-0000020051 00000 n 
+0000000160 00000 n 
+0000000346 00000 n 
+0000000541 00000 n 
+0000000732 00000 n 
+0000000956 00000 n 
+0000001148 00000 n 
+0000001386 00000 n 
+0000001619 00000 n 
+0000001835 00000 n 
+0000002066 00000 n 
+0000002262 00000 n 
+0000003077 00000 n 
+0000020669 00000 n 
+0000020717 00000 n 
+0000020934 00000 n 
+0000020993 00000 n 
 trailer
-<< /Size 17 /Root 16 0 R >>
+<< /Size 19 /Root 18 0 R >>
 startxref
-20287
+21243
 %%EOF
