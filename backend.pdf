@@ -1,0 +1,599 @@
+%PDF-1.7
+%‚„œ”
+1 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+2 0 obj
+<< /Type /Annot /Subtype /Widget /FT /Tx /T (state) /Ff 0 /Rect [0 0 1 1] /V () /DA (/Helv 10 Tf 0 g) /MK << /BC [0.6 0.6 0.6] /BG [1 1 1] >> /BS << /W 1 /S /S >> /F 2 >>
+endobj
+3 0 obj
+<< /Type /Annot /Subtype /Widget /FT /Tx /T (todo_list) /Ff 4097 /Rect [40 470 572 720] /V () /DA (/Helv 10 Tf 0 g) /MK << /BC [0.6 0.6 0.6] /BG [1 1 1] >> /BS << /W 1 /S /S >> >>
+endobj
+4 0 obj
+<< /Type /Annot /Subtype /Widget /FT /Tx /T (new_todo) /Ff 0 /Rect [40 430 360 458] /V () /DA (/Helv 10 Tf 0 g) /MK << /BC [0.6 0.6 0.6] /BG [1 1 1] >> /BS << /W 1 /S /S >> >>
+endobj
+5 0 obj
+<< /Type /Annot /Subtype /Widget /FT /Btn /Ff 65536 /T (add) /Rect [370 430 470 458] /MK << /CA (Add) /BG [0.86 0.86 0.86] /BC [0.4 0.4 0.4] >> /BS << /W 1 /S /S >> /A << /S /JavaScript /JS (onAdd\(\);) >> >>
+endobj
+6 0 obj
+<< /Type /Annot /Subtype /Widget /FT /Tx /T (action_id) /Ff 0 /Rect [40 390 140 418] /V () /DA (/Helv 10 Tf 0 g) /MK << /BC [0.6 0.6 0.6] /BG [1 1 1] >> /BS << /W 1 /S /S >> >>
+endobj
+7 0 obj
+<< /Type /Annot /Subtype /Widget /FT /Btn /Ff 65536 /T (toggle) /Rect [150 390 270 418] /MK << /CA (Toggle done) /BG [0.86 0.86 0.86] /BC [0.4 0.4 0.4] >> /BS << /W 1 /S /S >> /A << /S /JavaScript /JS (onToggle\(\);) >> >>
+endobj
+8 0 obj
+<< /Type /Annot /Subtype /Widget /FT /Btn /Ff 65536 /T (delete) /Rect [280 390 380 418] /MK << /CA (Delete) /BG [0.86 0.86 0.86] /BC [0.4 0.4 0.4] >> /BS << /W 1 /S /S >> /A << /S /JavaScript /JS (onDelete\(\);) >> >>
+endobj
+9 0 obj
+<< /Type /Annot /Subtype /Widget /FT /Tx /T (sql_input) /Ff 4096 /Rect [40 250 572 330] /V () /DA (/Helv 10 Tf 0 g) /MK << /BC [0.6 0.6 0.6] /BG [1 1 1] >> /BS << /W 1 /S /S >> >>
+endobj
+10 0 obj
+<< /Type /Annot /Subtype /Widget /FT /Btn /Ff 65536 /T (run) /Rect [40 218 160 246] /MK << /CA (Run SQL) /BG [0.86 0.86 0.86] /BC [0.4 0.4 0.4] >> /BS << /W 1 /S /S >> /A << /S /JavaScript /JS (onRunSql\(\);) >> >>
+endobj
+11 0 obj
+<< /Type /Annot /Subtype /Widget /FT /Tx /T (sql_output) /Ff 4097 /Rect [40 40 572 210] /V () /DA (/Helv 10 Tf 0 g) /MK << /BC [0.6 0.6 0.6] /BG [1 1 1] >> /BS << /W 1 /S /S >> >>
+endobj
+12 0 obj
+<< /Length 17538 >>
+stream
+
+var __mods = {}, __cache = {};
+function __resolve(from, r) {
+  if (r.charAt(0) !== '.') return r;
+  var dir = from.indexOf('/') >= 0 ? from.slice(0, from.lastIndexOf('/')) : '';
+  var parts = dir ? dir.split('/') : [];
+  var segs = r.split('/');
+  for (var i = 0; i < segs.length; i++) {
+    if (segs[i] === '.' || segs[i] === '') continue;
+    else if (segs[i] === '..') parts.pop();
+    else parts.push(segs[i]);
+  }
+  return parts.join('/');
+}
+function __require(id) {
+  if (__cache[id]) return __cache[id].exports;
+  var m = { exports: {} };
+  __cache[id] = m;
+  __mods[id](m, m.exports, function (r) { return __require(__resolve(id, r)); });
+  return m.exports;
+}
+__mods["sql/tokenizer"] = function (module, exports, require) {
+const KEYWORDS = new Set([
+  'create', 'table', 'insert', 'into', 'values', 'select', 'from', 'where',
+  'order', 'by', 'asc', 'desc', 'limit', 'update', 'set', 'delete',
+  'and', 'or', 'not', 'null', 'true', 'false',
+]);
+
+function tokenize(sql) {
+  const tokens = [];
+  let i = 0;
+  const isDigit = c => c >= '0' && c <= '9';
+  const isIdentStart = c => /[A-Za-z_]/.test(c);
+  const isIdent = c => /[A-Za-z0-9_]/.test(c);
+
+  while (i < sql.length) {
+    const c = sql[i];
+    if (c === ' ' || c === '\t' || c === '\n' || c === '\r') { i++; continue; }
+    if (c === '-' && sql[i + 1] === '-') {
+      while (i < sql.length && sql[i] !== '\n') i++;
+      continue;
+    }
+    if (c === ',' || c === '(' || c === ')' || c === ';') {
+      tokens.push({ type: 'punct', value: c }); i++; continue;
+    }
+    if (c === '*') { tokens.push({ type: 'star', value: '*' }); i++; continue; }
+    if (c === '=') { tokens.push({ type: 'op', value: '=' }); i++; continue; }
+    if (c === '!' && sql[i + 1] === '=') { tokens.push({ type: 'op', value: '<>' }); i += 2; continue; }
+    if (c === '<') {
+      if (sql[i + 1] === '=') { tokens.push({ type: 'op', value: '<=' }); i += 2; }
+      else if (sql[i + 1] === '>') { tokens.push({ type: 'op', value: '<>' }); i += 2; }
+      else { tokens.push({ type: 'op', value: '<' }); i++; }
+      continue;
+    }
+    if (c === '>') {
+      if (sql[i + 1] === '=') { tokens.push({ type: 'op', value: '>=' }); i += 2; }
+      else { tokens.push({ type: 'op', value: '>' }); i++; }
+      continue;
+    }
+    if (c === "'") {
+      let s = ''; i++;
+      while (i < sql.length) {
+        if (sql[i] === "'" && sql[i + 1] === "'") { s += "'"; i += 2; continue; }
+        if (sql[i] === "'") break;
+        s += sql[i]; i++;
+      }
+      if (sql[i] !== "'") throw new Error('Unterminated string literal');
+      i++;
+      tokens.push({ type: 'string', value: s });
+      continue;
+    }
+    if (isDigit(c) || (c === '.' && isDigit(sql[i + 1]))) {
+      let n = '';
+      while (i < sql.length && (isDigit(sql[i]) || sql[i] === '.')) { n += sql[i]; i++; }
+      tokens.push({ type: 'number', value: parseFloat(n) });
+      continue;
+    }
+    if (isIdentStart(c)) {
+      let id = '';
+      while (i < sql.length && isIdent(sql[i])) { id += sql[i]; i++; }
+      const lower = id.toLowerCase();
+      tokens.push(KEYWORDS.has(lower) ? { type: 'keyword', value: lower } : { type: 'ident', value: id });
+      continue;
+    }
+    throw new Error('Unexpected character: ' + c);
+  }
+  tokens.push({ type: 'eof', value: null });
+  return tokens;
+}
+
+module.exports = { tokenize, KEYWORDS };
+
+};
+__mods["sql/parser"] = function (module, exports, require) {
+const { tokenize } = require('./tokenizer');
+
+function parse(sql) {
+  const tokens = tokenize(sql);
+  let pos = 0;
+  const peek = () => tokens[pos];
+  const next = () => tokens[pos++];
+
+  function expect(type, value) {
+    const t = next();
+    if (t.type !== type || (value !== undefined && t.value !== value)) {
+      throw new Error('Expected ' + (value || type) + ', got ' + t.value);
+    }
+    return t;
+  }
+  function accept(type, value) {
+    const t = peek();
+    if (t.type === type && (value === undefined || t.value === value)) { pos++; return true; }
+    return false;
+  }
+  function isKw(v) { return peek().type === 'keyword' && peek().value === v; }
+
+  function parsePrimary() {
+    const t = peek();
+    if (t.type === 'number' || t.type === 'string') { next(); return { type: 'literal', value: t.value }; }
+    if (t.type === 'keyword' && t.value === 'null') { next(); return { type: 'literal', value: null }; }
+    if (t.type === 'keyword' && (t.value === 'true' || t.value === 'false')) {
+      next(); return { type: 'literal', value: t.value === 'true' };
+    }
+    if (t.type === 'ident') { next(); return { type: 'column', name: t.value }; }
+    if (t.type === 'punct' && t.value === '(') { next(); const e = parseExpr(); expect('punct', ')'); return e; }
+    throw new Error('Unexpected token in expression: ' + t.value);
+  }
+  function parseCompare() {
+    const left = parsePrimary();
+    if (peek().type === 'op') { const op = next().value; return { type: 'compare', op, left, right: parsePrimary() }; }
+    return left;
+  }
+  function parseNot() {
+    if (isKw('not')) { next(); return { type: 'not', expr: parseNot() }; }
+    return parseCompare();
+  }
+  function parseAnd() {
+    let left = parseNot();
+    while (isKw('and')) { next(); left = { type: 'logical', op: 'and', left, right: parseNot() }; }
+    return left;
+  }
+  function parseExpr() {
+    let left = parseAnd();
+    while (isKw('or')) { next(); left = { type: 'logical', op: 'or', left, right: parseAnd() }; }
+    return left;
+  }
+
+  function parseCreate() {
+    expect('keyword', 'create'); expect('keyword', 'table');
+    const table = expect('ident').value;
+    expect('punct', '(');
+    const columns = [];
+    do {
+      const name = expect('ident').value;
+      let colType = 'text';
+      if (peek().type === 'ident' || peek().type === 'keyword') colType = String(next().value).toLowerCase();
+      columns.push({ name, type: colType });
+    } while (accept('punct', ','));
+    expect('punct', ')');
+    return { type: 'create_table', table, columns };
+  }
+  function parseInsert() {
+    expect('keyword', 'insert'); expect('keyword', 'into');
+    const table = expect('ident').value;
+    let columns = null;
+    if (accept('punct', '(')) {
+      columns = [];
+      do { columns.push(expect('ident').value); } while (accept('punct', ','));
+      expect('punct', ')');
+    }
+    expect('keyword', 'values');
+    const rows = [];
+    do {
+      expect('punct', '(');
+      const vals = [];
+      do { vals.push(parseExpr()); } while (accept('punct', ','));
+      expect('punct', ')');
+      rows.push(vals);
+    } while (accept('punct', ','));
+    return { type: 'insert', table, columns, rows };
+  }
+  function parseSelect() {
+    expect('keyword', 'select');
+    let columns;
+    if (accept('star')) columns = ['*'];
+    else {
+      columns = [];
+      do { columns.push(expect('ident').value); } while (accept('punct', ','));
+    }
+    expect('keyword', 'from');
+    const table = expect('ident').value;
+    let where = null;
+    if (accept('keyword', 'where')) where = parseExpr();
+    let orderBy = null;
+    if (accept('keyword', 'order')) {
+      expect('keyword', 'by');
+      const column = expect('ident').value;
+      let dir = 'asc';
+      if (accept('keyword', 'desc')) dir = 'desc'; else accept('keyword', 'asc');
+      orderBy = { column, dir };
+    }
+    let limit = null;
+    if (accept('keyword', 'limit')) limit = expect('number').value;
+    return { type: 'select', columns, table, where, orderBy, limit };
+  }
+  function parseUpdate() {
+    expect('keyword', 'update');
+    const table = expect('ident').value;
+    expect('keyword', 'set');
+    const set = [];
+    do {
+      const column = expect('ident').value;
+      expect('op', '=');
+      set.push({ column, value: parseExpr() });
+    } while (accept('punct', ','));
+    let where = null;
+    if (accept('keyword', 'where')) where = parseExpr();
+    return { type: 'update', table, set, where };
+  }
+  function parseDelete() {
+    expect('keyword', 'delete'); expect('keyword', 'from');
+    const table = expect('ident').value;
+    let where = null;
+    if (accept('keyword', 'where')) where = parseExpr();
+    return { type: 'delete', table, where };
+  }
+
+  function parseStatement() {
+    const t = peek();
+    if (t.type !== 'keyword') throw new Error('Expected a statement, got ' + t.value);
+    switch (t.value) {
+      case 'create': return parseCreate();
+      case 'insert': return parseInsert();
+      case 'select': return parseSelect();
+      case 'update': return parseUpdate();
+      case 'delete': return parseDelete();
+      default: throw new Error('Unsupported statement: ' + t.value);
+    }
+  }
+
+  const stmt = parseStatement();
+  accept('punct', ';');
+  if (peek().type !== 'eof') throw new Error('Unexpected token after statement: ' + peek().value);
+  return stmt;
+}
+
+module.exports = { parse };
+
+};
+__mods["sql/executor"] = function (module, exports, require) {
+function evalExpr(node, row) {
+  switch (node.type) {
+    case 'literal': return node.value;
+    case 'column':
+      if (!(node.name in row)) throw new Error('Unknown column: ' + node.name);
+      return row[node.name];
+    case 'compare': {
+      const l = evalExpr(node.left, row);
+      const r = evalExpr(node.right, row);
+      switch (node.op) {
+        case '=': return l === r;
+        case '<>': return l !== r;
+        case '<': return l < r;
+        case '<=': return l <= r;
+        case '>': return l > r;
+        case '>=': return l >= r;
+        default: throw new Error('Unknown operator: ' + node.op);
+      }
+    }
+    case 'logical':
+      return node.op === 'and'
+        ? (evalExpr(node.left, row) && evalExpr(node.right, row))
+        : (evalExpr(node.left, row) || evalExpr(node.right, row));
+    case 'not': return !evalExpr(node.expr, row);
+    default: throw new Error('Cannot evaluate node: ' + node.type);
+  }
+}
+
+function table(db, name) {
+  const t = db.tables[name];
+  if (!t) throw new Error('No such table: ' + name);
+  return t;
+}
+
+function execute(ast, db) {
+  switch (ast.type) {
+    case 'create_table': {
+      if (db.tables[ast.table]) throw new Error('Table already exists: ' + ast.table);
+      db.tables[ast.table] = { columns: ast.columns.map(c => c.name), rows: [] };
+      return { columns: [], rows: [], rowCount: 0, message: 'Table created: ' + ast.table };
+    }
+    case 'insert': {
+      const t = table(db, ast.table);
+      const cols = ast.columns || t.columns;
+      let count = 0;
+      for (const exprs of ast.rows) {
+        if (exprs.length !== cols.length) throw new Error('Column count does not match value count');
+        const row = {};
+        for (const c of t.columns) row[c] = null;
+        cols.forEach((c, idx) => {
+          if (t.columns.indexOf(c) === -1) throw new Error('Unknown column: ' + c);
+          row[c] = evalExpr(exprs[idx], {});
+        });
+        t.rows.push(row);
+        count++;
+      }
+      return { columns: [], rows: [], rowCount: count, message: count + ' row(s) inserted' };
+    }
+    case 'select': {
+      const t = table(db, ast.table);
+      let rows = t.rows.filter(r => (ast.where ? evalExpr(ast.where, r) : true));
+      if (ast.orderBy) {
+        const { column, dir } = ast.orderBy;
+        rows = rows.slice().sort((a, b) => {
+          if (a[column] < b[column]) return dir === 'asc' ? -1 : 1;
+          if (a[column] > b[column]) return dir === 'asc' ? 1 : -1;
+          return 0;
+        });
+      }
+      if (ast.limit != null) rows = rows.slice(0, ast.limit);
+      const columns = ast.columns[0] === '*' ? t.columns.slice() : ast.columns;
+      for (const c of columns) {
+        if (t.columns.indexOf(c) === -1) throw new Error('Unknown column: ' + c);
+      }
+      const outRows = rows.map(r => columns.map(c => r[c]));
+      return { columns, rows: outRows, rowCount: outRows.length, message: null };
+    }
+    case 'update': {
+      const t = table(db, ast.table);
+      let count = 0;
+      for (const r of t.rows) {
+        if (ast.where && !evalExpr(ast.where, r)) continue;
+        for (const s of ast.set) {
+          if (!(s.column in r)) throw new Error('Unknown column: ' + s.column);
+          r[s.column] = evalExpr(s.value, r);
+        }
+        count++;
+      }
+      return { columns: [], rows: [], rowCount: count, message: count + ' row(s) updated' };
+    }
+    case 'delete': {
+      const t = table(db, ast.table);
+      const before = t.rows.length;
+      t.rows = t.rows.filter(r => (ast.where ? !evalExpr(ast.where, r) : false));
+      const removed = before - t.rows.length;
+      return { columns: [], rows: [], rowCount: removed, message: removed + ' row(s) deleted' };
+    }
+    default: throw new Error('Cannot execute: ' + ast.type);
+  }
+}
+
+module.exports = { execute, evalExpr };
+
+};
+__mods["db/database"] = function (module, exports, require) {
+const { parse } = require('../sql/parser');
+const { execute } = require('../sql/executor');
+
+class Database {
+  constructor() { this.tables = {}; }
+
+  run(sql) { return execute(parse(sql), this); }
+
+  serialize() { return JSON.stringify({ v: 1, tables: this.tables }); }
+
+  static deserialize(str) {
+    const db = new Database();
+    if (!str) return db;
+    try {
+      const data = JSON.parse(str);
+      if (data && data.tables) db.tables = data.tables;
+    } catch (e) {
+      // corrupt blob -> start clean
+    }
+    return db;
+  }
+}
+
+module.exports = { Database };
+
+};
+__mods["app/todo"] = function (module, exports, require) {
+function seed(db) {
+  db.run("create table todos (id integer, text text, done integer)");
+  db.run("insert into todos (id, text, done) values (1, 'try the SQL console below', 0)");
+  db.run("insert into todos (id, text, done) values (2, 'this whole app is one PDF file', 0)");
+}
+
+function ensureSchema(db) {
+  if (!db.tables.todos) seed(db);
+}
+
+function nextId(db) {
+  const res = db.run("select id from todos order by id desc limit 1");
+  return res.rows.length ? res.rows[0][0] + 1 : 1;
+}
+
+function listTodos(db) {
+  return db.run("select id, text, done from todos order by id asc");
+}
+
+function addTodo(db, text) {
+  const id = nextId(db);
+  const safe = String(text).replace(/'/g, "''");
+  db.run("insert into todos (id, text, done) values (" + id + ", '" + safe + "', 0)");
+  return id;
+}
+
+function toggleTodo(db, id) {
+  const res = db.run("select done from todos where id = " + id);
+  if (!res.rows.length) return;
+  const cur = res.rows[0][0];
+  db.run("update todos set done = " + (cur ? 0 : 1) + " where id = " + id);
+}
+
+function deleteTodo(db, id) {
+  db.run("delete from todos where id = " + id);
+}
+
+module.exports = { seed, ensureSchema, nextId, listTodos, addTodo, toggleTodo, deleteTodo };
+
+};
+__mods["app/ui"] = function (module, exports, require) {
+const { Database } = require('../db/database');
+const todo = require('./todo');
+
+const FIELDS = {
+  state: 'state',
+  todoList: 'todo_list',
+  newTodo: 'new_todo',
+  sqlInput: 'sql_input',
+  sqlOutput: 'sql_output',
+  actionId: 'action_id',
+};
+
+function load(doc) {
+  const db = Database.deserialize(doc.getField(FIELDS.state).value);
+  todo.ensureSchema(db);
+  return db;
+}
+
+function save(doc, db) {
+  doc.getField(FIELDS.state).value = db.serialize();
+}
+
+function renderTodos(doc, db) {
+  const rows = todo.listTodos(db).rows;
+  const lines = rows.map(r => '[' + (r[2] ? 'x' : ' ') + '] #' + r[0] + ' ' + r[1]);
+  doc.getField(FIELDS.todoList).value = lines.length ? lines.join('\n') : '(no todos yet)';
+}
+
+function formatResult(res) {
+  if (!res.columns.length) return res.message || 'OK';
+  const header = res.columns.join(' | ');
+  const sep = res.columns.map(() => '---').join(' | ');
+  const body = res.rows.map(r => r.map(v => (v === null ? 'NULL' : String(v))).join(' | '));
+  return [header, sep].concat(body).join('\n') +
+    '\n(' + res.rowCount + ' row' + (res.rowCount === 1 ? '' : 's') + ')';
+}
+
+function init(doc) {
+  const db = load(doc);
+  save(doc, db);
+  renderTodos(doc, db);
+}
+
+function onAdd(doc) {
+  const db = load(doc);
+  const text = (doc.getField(FIELDS.newTodo).value || '').replace(/^\s+|\s+$/g, '');
+  if (text) { todo.addTodo(db, text); doc.getField(FIELDS.newTodo).value = ''; }
+  save(doc, db);
+  renderTodos(doc, db);
+}
+
+function onRunSql(doc) {
+  const db = load(doc);
+  const sql = (doc.getField(FIELDS.sqlInput).value || '').replace(/^\s+|\s+$/g, '');
+  let out;
+  try { out = formatResult(db.run(sql)); }
+  catch (e) { out = 'Error: ' + (e && e.message ? e.message : e); }
+  doc.getField(FIELDS.sqlOutput).value = out;
+  save(doc, db);
+  renderTodos(doc, db);
+}
+
+function actionId(doc) {
+  const v = parseInt(doc.getField(FIELDS.actionId).value, 10);
+  return isNaN(v) ? null : v;
+}
+
+function onToggle(doc) {
+  const db = load(doc);
+  const id = actionId(doc);
+  if (id != null) todo.toggleTodo(db, id);
+  save(doc, db);
+  renderTodos(doc, db);
+}
+
+function onDelete(doc) {
+  const db = load(doc);
+  const id = actionId(doc);
+  if (id != null) todo.deleteTodo(db, id);
+  save(doc, db);
+  renderTodos(doc, db);
+}
+
+module.exports = { FIELDS, load, save, renderTodos, formatResult, init, onAdd, onRunSql, onToggle, onDelete };
+
+};
+
+var __doc = this;
+var UI = __require('app/ui');
+function __run(fn) {
+  try { fn(__doc); }
+  catch (e) { try { app.alert(String(e && e.message ? e.message : e)); } catch (_) {} }
+}
+__doc.onAdd = function () { __run(UI.onAdd); };
+__doc.onRunSql = function () { __run(UI.onRunSql); };
+__doc.onToggle = function () { __run(UI.onToggle); };
+__doc.onDelete = function () { __run(UI.onDelete); };
+var onAdd = __doc.onAdd, onRunSql = __doc.onRunSql, onToggle = __doc.onToggle, onDelete = __doc.onDelete;
+__run(UI.init);
+
+endstream
+endobj
+13 0 obj
+<< /S /JavaScript /JS 12 0 R >>
+endobj
+14 0 obj
+<< /Type /Page /Parent 15 0 R /MediaBox [0 0 612 792] /Resources << /Font << /Helv 1 0 R >> >> /Annots [2 0 R 3 0 R 4 0 R 5 0 R 6 0 R 7 0 R 8 0 R 9 0 R 10 0 R 11 0 R] >>
+endobj
+15 0 obj
+<< /Type /Pages /Kids [14 0 R] /Count 1 >>
+endobj
+16 0 obj
+<< /Type /Catalog /Pages 15 0 R /AcroForm << /Fields [2 0 R 3 0 R 4 0 R 5 0 R 6 0 R 7 0 R 8 0 R 9 0 R 10 0 R 11 0 R] /NeedAppearances true /DA (/Helv 10 Tf 0 g) /DR << /Font << /Helv 1 0 R >> >> >> /OpenAction 13 0 R >>
+endobj
+xref
+0 17
+0000000000 65535 f 
+0000000015 00000 n 
+0000000085 00000 n 
+0000000271 00000 n 
+0000000466 00000 n 
+0000000657 00000 n 
+0000000881 00000 n 
+0000001073 00000 n 
+0000001311 00000 n 
+0000001544 00000 n 
+0000001739 00000 n 
+0000001970 00000 n 
+0000002166 00000 n 
+0000019758 00000 n 
+0000019806 00000 n 
+0000019992 00000 n 
+0000020051 00000 n 
+trailer
+<< /Size 17 /Root 16 0 R >>
+startxref
+20287
+%%EOF

@@ -1,4 +1,4 @@
-// Minimal stand-in for the PDF viewer's JS API, so the UI code can be tested in Node.
+// fake doc/app so the ui can run under node --test
 function createDoc(fieldNames) {
   const fields = {};
   (fieldNames || []).forEach(n => { fields[n] = { value: '' }; });
