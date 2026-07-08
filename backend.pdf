@@ -1,39 +1,75 @@
 %PDF-1.7
 %‚„œ”
 1 0 obj
-<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+<< /Type /Font /Subtype /Type1 /BaseFont /Times-Roman >>
 endobj
 2 0 obj
-<< /Type /Annot /Subtype /Widget /FT /Tx /T (state) /Ff 0 /Rect [0 0 1 1] /V () /DA (/Helv 10 Tf 0 g) /MK << /BC [0.6 0.6 0.6] /BG [1 1 1] >> /BS << /W 1 /S /S >> /F 2 >>
+<< /Type /Font /Subtype /Type1 /BaseFont /Times-Bold >>
 endobj
 3 0 obj
-<< /Type /Annot /Subtype /Widget /FT /Tx /T (todo_list) /Ff 4097 /Rect [40 470 572 720] /V () /DA (/Helv 10 Tf 0 g) /MK << /BC [0.6 0.6 0.6] /BG [1 1 1] >> /BS << /W 1 /S /S >> >>
+<< /Type /Font /Subtype /Type1 /BaseFont /Times-Italic >>
 endobj
 4 0 obj
-<< /Type /Annot /Subtype /Widget /FT /Tx /T (new_todo) /Ff 0 /Rect [40 430 360 458] /V () /DA (/Helv 10 Tf 0 g) /MK << /BC [0.6 0.6 0.6] /BG [1 1 1] >> /BS << /W 1 /S /S >> >>
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
 endobj
 5 0 obj
-<< /Type /Annot /Subtype /Widget /FT /Btn /Ff 65536 /T (add) /Rect [370 430 470 458] /MK << /CA (Add) /BG [0.86 0.86 0.86] /BC [0.4 0.4 0.4] >> /BS << /W 1 /S /S >> /A << /S /JavaScript /JS (onAdd\(\);) >> >>
+<< /Type /Annot /Subtype /Widget /FT /Tx /T (state) /Ff 0 /Rect [0 0 1 1] /V () /DA (/Cour 10 Tf 0.1 0.1 0.1 rg) /MK << /BC [0.55 0.55 0.55] /BG [0.99 0.99 0.98] >> /BS << /W 0.6 /S /S >> /F 2 >>
 endobj
 6 0 obj
-<< /Type /Annot /Subtype /Widget /FT /Tx /T (action_id) /Ff 0 /Rect [40 390 140 418] /V () /DA (/Helv 10 Tf 0 g) /MK << /BC [0.6 0.6 0.6] /BG [1 1 1] >> /BS << /W 1 /S /S >> >>
+<< /Type /Annot /Subtype /Widget /FT /Tx /T (todo_list) /Ff 4097 /Rect [72 486 540 670] /V () /DA (/Cour 10 Tf 0.1 0.1 0.1 rg) /MK << /BC [0.55 0.55 0.55] /BG [0.99 0.99 0.98] >> /BS << /W 0.6 /S /S >> >>
 endobj
 7 0 obj
-<< /Type /Annot /Subtype /Widget /FT /Btn /Ff 65536 /T (toggle) /Rect [150 390 270 418] /MK << /CA (Toggle done) /BG [0.86 0.86 0.86] /BC [0.4 0.4 0.4] >> /BS << /W 1 /S /S >> /A << /S /JavaScript /JS (onToggle\(\);) >> >>
+<< /Type /Annot /Subtype /Widget /FT /Tx /T (new_todo) /Ff 0 /Rect [72 446 400 470] /V () /DA (/Cour 10 Tf 0.1 0.1 0.1 rg) /MK << /BC [0.55 0.55 0.55] /BG [0.99 0.99 0.98] >> /BS << /W 0.6 /S /S >> >>
 endobj
 8 0 obj
-<< /Type /Annot /Subtype /Widget /FT /Btn /Ff 65536 /T (delete) /Rect [280 390 380 418] /MK << /CA (Delete) /BG [0.86 0.86 0.86] /BC [0.4 0.4 0.4] >> /BS << /W 1 /S /S >> /A << /S /JavaScript /JS (onDelete\(\);) >> >>
+<< /Type /Annot /Subtype /Widget /FT /Btn /Ff 65536 /T (add) /Rect [410 446 500 470] /MK << /CA (Add) /BG [0.92 0.91 0.89] /BC [0.45 0.45 0.45] >> /BS << /W 0.8 /S /S >> /A << /S /JavaScript /JS (onAdd\(\);) >> >>
 endobj
 9 0 obj
-<< /Type /Annot /Subtype /Widget /FT /Tx /T (sql_input) /Ff 4096 /Rect [40 250 572 330] /V () /DA (/Helv 10 Tf 0 g) /MK << /BC [0.6 0.6 0.6] /BG [1 1 1] >> /BS << /W 1 /S /S >> >>
+<< /Type /Annot /Subtype /Widget /FT /Tx /T (action_id) /Ff 0 /Rect [72 408 160 432] /V () /DA (/Cour 10 Tf 0.1 0.1 0.1 rg) /MK << /BC [0.55 0.55 0.55] /BG [0.99 0.99 0.98] >> /BS << /W 0.6 /S /S >> >>
 endobj
 10 0 obj
-<< /Type /Annot /Subtype /Widget /FT /Btn /Ff 65536 /T (run) /Rect [40 218 160 246] /MK << /CA (Run SQL) /BG [0.86 0.86 0.86] /BC [0.4 0.4 0.4] >> /BS << /W 1 /S /S >> /A << /S /JavaScript /JS (onRunSql\(\);) >> >>
+<< /Type /Annot /Subtype /Widget /FT /Btn /Ff 65536 /T (toggle) /Rect [170 408 300 432] /MK << /CA (Toggle done) /BG [0.92 0.91 0.89] /BC [0.45 0.45 0.45] >> /BS << /W 0.8 /S /S >> /A << /S /JavaScript /JS (onToggle\(\);) >> >>
 endobj
 11 0 obj
-<< /Type /Annot /Subtype /Widget /FT /Tx /T (sql_output) /Ff 4097 /Rect [40 40 572 210] /V () /DA (/Helv 10 Tf 0 g) /MK << /BC [0.6 0.6 0.6] /BG [1 1 1] >> /BS << /W 1 /S /S >> >>
+<< /Type /Annot /Subtype /Widget /FT /Btn /Ff 65536 /T (delete) /Rect [310 408 410 432] /MK << /CA (Delete) /BG [0.92 0.91 0.89] /BC [0.45 0.45 0.45] >> /BS << /W 0.8 /S /S >> /A << /S /JavaScript /JS (onDelete\(\);) >> >>
 endobj
 12 0 obj
+<< /Type /Annot /Subtype /Widget /FT /Tx /T (sql_input) /Ff 4096 /Rect [72 268 540 348] /V (select * from todos;) /DA (/Cour 11 Tf 0.1 0.1 0.1 rg) /MK << /BC [0.55 0.55 0.55] /BG [0.99 0.99 0.98] >> /BS << /W 0.6 /S /S >> >>
+endobj
+13 0 obj
+<< /Type /Annot /Subtype /Widget /FT /Btn /Ff 65536 /T (run) /Rect [72 236 200 262] /MK << /CA (Run SQL) /BG [0.92 0.91 0.89] /BC [0.45 0.45 0.45] >> /BS << /W 0.8 /S /S >> /A << /S /JavaScript /JS (onRunSql\(\);) >> >>
+endobj
+14 0 obj
+<< /Type /Annot /Subtype /Widget /FT /Tx /T (sql_output) /Ff 4097 /Rect [72 44 540 206] /V () /DA (/Cour 10 Tf 0.1 0.1 0.1 rg) /MK << /BC [0.55 0.55 0.55] /BG [0.99 0.99 0.98] >> /BS << /W 0.6 /S /S >> >>
+endobj
+15 0 obj
+<< /Length 969 >>
+stream
+0.05 0.05 0.05 rg
+BT /TiBd 24 Tf 237.36 744 Td (backend.pdf) Tj ET
+0.2 0.2 0.2 rg
+BT /TiIt 12.5 Tf 124.75 723 Td (A relational database that lives inside this very document) Tj ET
+0.4 0.4 0.4 rg
+BT /Cour 9 Tf 198 707 Td (no server    no dependencies    one file) Tj ET
+0.6 0.6 0.6 RG 0.6 w 72 697 m 540 697 l S
+0.05 0.05 0.05 rg
+BT /TiBd 13 Tf 72 676 Td (1    Your todos) Tj ET
+0.3 0.3 0.3 rg
+BT /TiIt 10.5 Tf 72 474 Td (Add a todo:) Tj ET
+0.35 0.35 0.35 rg
+BT /TiIt 9.5 Tf 72 438 Td (Toggle or delete a todo by its id - type the number, then click.) Tj ET
+0.35 0.35 0.35 rg
+BT /TiIt 9.5 Tf 72 392 Td (To save your data, use the Download icon in the toolbar \(Cmd+S only re-downloads the original\).) Tj ET
+0.05 0.05 0.05 rg
+BT /TiBd 13 Tf 72 372 Td (2    SQL console) Tj ET
+0.35 0.35 0.35 rg
+BT /TiIt 9.5 Tf 72 356 Td (Edit the query and press Run SQL. Try:  select text from todos where done = 0) Tj ET
+0.05 0.05 0.05 rg
+BT /TiBd 13 Tf 72 216 Td (3    Results) Tj ET
+
+endstream
+endobj
+16 0 obj
 << /Length 17538 >>
 stream
 
@@ -561,39 +597,43 @@ __run(UI.init);
 
 endstream
 endobj
-13 0 obj
-<< /S /JavaScript /JS 12 0 R >>
+17 0 obj
+<< /S /JavaScript /JS 16 0 R >>
 endobj
-14 0 obj
-<< /Type /Page /Parent 15 0 R /MediaBox [0 0 612 792] /Resources << /Font << /Helv 1 0 R >> >> /Annots [2 0 R 3 0 R 4 0 R 5 0 R 6 0 R 7 0 R 8 0 R 9 0 R 10 0 R 11 0 R] >>
+18 0 obj
+<< /Type /Page /Parent 19 0 R /MediaBox [0 0 612 792] /Resources << /Font << /Ti 1 0 R /TiBd 2 0 R /TiIt 3 0 R /Cour 4 0 R >> >> /Contents 15 0 R /Annots [5 0 R 6 0 R 7 0 R 8 0 R 9 0 R 10 0 R 11 0 R 12 0 R 13 0 R 14 0 R] >>
 endobj
-15 0 obj
-<< /Type /Pages /Kids [14 0 R] /Count 1 >>
+19 0 obj
+<< /Type /Pages /Kids [18 0 R] /Count 1 >>
 endobj
-16 0 obj
-<< /Type /Catalog /Pages 15 0 R /AcroForm << /Fields [2 0 R 3 0 R 4 0 R 5 0 R 6 0 R 7 0 R 8 0 R 9 0 R 10 0 R 11 0 R] /NeedAppearances true /DA (/Helv 10 Tf 0 g) /DR << /Font << /Helv 1 0 R >> >> >> /OpenAction 13 0 R >>
+20 0 obj
+<< /Type /Catalog /Pages 19 0 R /AcroForm << /Fields [5 0 R 6 0 R 7 0 R 8 0 R 9 0 R 10 0 R 11 0 R 12 0 R 13 0 R 14 0 R] /NeedAppearances true /DA (/Cour 10 Tf 0 g) /DR << /Font << /Ti 1 0 R /TiBd 2 0 R /TiIt 3 0 R /Cour 4 0 R >> >> >> /OpenAction 17 0 R >>
 endobj
 xref
-0 17
+0 21
 0000000000 65535 f 
 0000000015 00000 n 
-0000000085 00000 n 
-0000000271 00000 n 
-0000000466 00000 n 
-0000000657 00000 n 
-0000000881 00000 n 
-0000001073 00000 n 
-0000001311 00000 n 
-0000001544 00000 n 
-0000001739 00000 n 
-0000001970 00000 n 
-0000002166 00000 n 
-0000019758 00000 n 
-0000019806 00000 n 
-0000019992 00000 n 
-0000020051 00000 n 
+0000000087 00000 n 
+0000000158 00000 n 
+0000000231 00000 n 
+0000000299 00000 n 
+0000000510 00000 n 
+0000000730 00000 n 
+0000000946 00000 n 
+0000001175 00000 n 
+0000001392 00000 n 
+0000001636 00000 n 
+0000001875 00000 n 
+0000002116 00000 n 
+0000002352 00000 n 
+0000002573 00000 n 
+0000003594 00000 n 
+0000021186 00000 n 
+0000021234 00000 n 
+0000021474 00000 n 
+0000021533 00000 n 
 trailer
-<< /Size 17 /Root 16 0 R >>
+<< /Size 21 /Root 20 0 R >>
 startxref
-20287
+21806
 %%EOF
